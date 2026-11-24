@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>券商付费功能 · 五大实用工具</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { background:#e7e3da; font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif; -webkit-font-smoothing:antialiased; }
+  .app { width:100%; max-width:720px; margin:0 auto; min-height:100vh; background:#faf9f6; box-shadow:0 0 40px rgba(0,0,0,0.10); }
+  .brand { background:#16161a; padding:16px 18px 14px; }
+  .brand .mark { font-size:13px; letter-spacing:2px; color:#c9a24b; font-weight:700; }
+  .brand .title { font-size:23px; font-weight:800; color:#fff; margin-top:3px; letter-spacing:1px; }
+  .brand .bar { display:flex; align-items:center; justify-content:space-between; margin-top:4px; }
+  .brand .tag { font-size:11px; color:#9a9a9a; }
+  .kline { background:#0f1014; padding:6px 0 2px; }
+  .kline svg { display:block; width:100%; height:auto; }
+  .kline .cap { color:#7d7d7d; font-size:11px; text-align:center; padding:2px 0 8px; letter-spacing:1px; }
+  .lead { padding:14px 18px 4px; font-size:13.5px; color:#555; line-height:1.7; }
+  .lead b { color:#16161a; }
+  .tools { padding:12px 14px 22px; display:grid; grid-template-columns:repeat(2,1fr); gap:11px; }
+  @media (min-width:600px){ .tools{ grid-template-columns:repeat(3,1fr); padding:16px 22px 28px; } .brand{padding:22px 28px 18px;} .brand .title{font-size:28px;} }
+  .tool { display:flex; align-items:center; gap:11px; background:#fff; border:1px solid #e7e3da; border-radius:13px; padding:13px 14px; text-decoration:none; color:#16161a; transition:.12s; min-width:0; }
+  .tool:active { transform:scale(0.97); }
+  .tool .idx { flex:0 0 34px; width:34px; height:34px; border-radius:9px; background:#16161a; color:#c9a24b; font-weight:800; font-size:15px; display:flex; align-items:center; justify-content:center; }
+  .tool .info { min-width:0; }
+  .tool .name { font-size:15px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tool .desc { font-size:11px; color:#8a8a8a; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tool.hot .idx { background:#c9a24b; color:#16161a; }
+  .tool.hot .tag { margin-left:auto; flex:0 0 auto; font-size:10px; font-weight:700; color:#c9a24b; border:1px solid #c9a24b; border-radius:20px; padding:1px 7px; }
+  .foot { background:#16161a; color:#777; font-size:11px; text-align:center; padding:12px; letter-spacing:1px; }
+</style>
+</head>
+<body>
+  <div class="app">
+    <div class="brand">
+      <div class="mark">财神爷出品</div>
+      <div class="title">券商付费功能</div>
+      <div class="bar"><span class="tag">本机离线 · 双击即用</span></div>
+    </div>
+    <div class="kline">
+      <svg id="kl" viewBox="0 0 720 190" preserveAspectRatio="none" aria-label="K线示意图"></svg>
+      <div class="cap">— 示例 K 线 · 仅作界面示意，非实时行情 —</div>
+    </div>
+    <div class="lead">
+      以下工具对应各大券商 APP 里的<b>包月付费看盘功能</b>，现已做成本地版，
+      打开即用、数据在您自己电脑/手机上。点击任意工具即可进入。
+    </div>
+    <div class="tools">
+      <a class="tool hot" href="01-网格计算器/网格计算器.html"><span class="idx">01</span><span class="info"><span class="name">网格计算器</span><span class="desc">自动算买卖档位 · 区间回测</span></span><span class="tag">点击进入</span></a>
+      <a class="tool" href="02-神奇九转计数器/神奇九转计数器.html"><span class="idx">02</span><span class="info"><span class="name">神奇九转计数器</span><span class="desc">九转序列自动计数</span></span></a>
+      <a class="tool" href="03-持仓体检器/持仓体检器.html"><span class="idx">03</span><span class="info"><span class="name">持仓体检器</span><span class="desc">回撤与风险一键体检</span></span></a>
+      <a class="tool" href="04-撑压位计算器/撑压位计算器.html"><span class="idx">04</span><span class="info"><span class="name">撑压位计算器</span><span class="desc">多法共振支撑压力位</span></span></a>
+      <a class="tool" href="05-条件单策略计算器/条件单策略计算器.html"><span class="idx">05</span><span class="info"><span class="name">条件单策略计算器</span><span class="desc">止盈止损分批情景推演</span></span></a>
+      <a class="tool" href="00-使用说明/使用说明.html"><span class="idx">?</span><span class="info"><span class="name">使用说明</span><span class="desc">五个工具怎么用 · 必读</span></span></a>
+    </div>
+    <div class="foot">财神爷出品 · 仅作计算参考，不构成任何投资建议</div>
+  </div>
+<script>
+  (function(){
+    const data=[]; let seed=20260920;
+    const rnd=()=>{ seed=(seed*9301+49297)%233280; return seed/233280; };
+    let p=1.00;
+    for(let i=0;i<40;i++){
+      const o=p, ch=(rnd()-0.47)*0.055, c=o*(1+ch);
+      const h=Math.max(o,c)*(1+rnd()*0.018), l=Math.min(o,c)*(1-rnd()*0.018);
+      data.push({o,h,l,c}); p=c;
+    }
+    const W=720,H=190,pad=14, n=data.length;
+    const maxH=Math.max.apply(null,data.map(d=>d.h)), minL=Math.min.apply(null,data.map(d=>d.l));
+    const y=v=>pad+(maxH-v)/(maxH-minL)*(H-2*pad);
+    const step=W/n, bw=step*0.62;
+    let svg='';
+    for(let g=0;g<=3;g++){ const yy=pad+g*(H-2*pad)/3; svg+='<line x1="0" y1="'+yy+'" x2="'+W+'" y2="'+yy+'" stroke="#1c1d22" stroke-width="1"/>'; }
+    data.forEach(function(d,i){
+      const cx=step*i+step/2;
+      const up=d.c>=d.o; const col=up?'#e8503a':'#1faa59';
+      svg+='<line x1="'+cx+'" y1="'+y(d.h)+'" x2="'+cx+'" y2="'+y(d.l)+'" stroke="'+col+'" stroke-width="1.4"/>';
+      const y1=y(Math.max(d.o,d.c)), y2=y(Math.min(d.o,d.c));
+      svg+='<rect x="'+(cx-bw/2)+'" y="'+y1+'" width="'+bw+'" height="'+Math.max(1,y2-y1)+'" fill="'+col+'"/>';
+    });
+    document.getElementById('kl').innerHTML=svg;
+  })();
+</script>
+</body>
+</html>
