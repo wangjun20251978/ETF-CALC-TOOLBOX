@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>使用说明 · 本机买断版</title>
+<style>
+:root{
+  --bg:#0e1014; --panel:#171a21; --panel2:#1e222b; --line:#2a303c;
+  --txt:#e6e9ef; --txt2:#98a1b0; --txt3:#697282;
+  --up:#e5484d; --down:#2fa46b; --accent:#4c8dff; --warn:#f5a524;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--txt);padding:22px 18px 60px;
+  font:14px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto}
+header{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+h1{font-size:20px;font-weight:600;letter-spacing:.2px}
+.sub{color:var(--txt3);font-size:12.5px;margin-top:6px}
+.tagline{
+  display:inline-block;margin-top:10px;background:rgba(76,141,255,.13);
+  border:1px solid rgba(76,141,255,.4);color:#9dc0ff;border-radius:6px;
+  padding:3px 10px;font-size:11.5px;letter-spacing:.3px;
+}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.panel h2{font-size:13.5px;font-weight:600;color:var(--txt);margin-bottom:12px;letter-spacing:.3px}
+.panel h2 .n{
+  display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;
+  background:var(--accent);color:#fff;border-radius:5px;font-size:12px;margin-right:8px;
+}
+p{color:var(--txt2);font-size:13px;margin-bottom:9px}
+p:last-child{margin-bottom:0}
+b{color:var(--txt);font-weight:600}
+.steps{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.step{display:flex;gap:11px;align-items:flex-start;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.step .idx{
+  flex:0 0 22px;height:22px;line-height:22px;text-align:center;background:var(--bg);
+  border:1px solid var(--line);border-radius:6px;font-size:11.5px;color:var(--accent);font-weight:600;
+}
+.step .body{flex:1;font-size:12.8px;color:var(--txt2);line-height:1.65}
+.step .body b{color:var(--txt)}
+.step .body .t{display:block;color:var(--txt);font-weight:600;font-size:13px;margin-bottom:3px}
+.os{
+  display:inline-block;font-size:11px;color:var(--txt3);border:1px solid var(--line);
+  border-radius:5px;padding:1px 7px;margin-right:6px;
+}
+.os.best{color:#7ee2b0;border-color:rgba(47,164,107,.5);background:rgba(47,164,107,.1)}
+.os.meh{color:var(--warn);border-color:rgba(245,165,36,.45);background:rgba(245,165,36,.08)}
+ul{list-style:none;margin:0}
+li{position:relative;padding-left:16px;color:var(--txt2);font-size:12.8px;margin-bottom:7px;line-height:1.7}
+li:last-child{margin-bottom:0}
+li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--txt3)}
+li b{color:var(--txt)}
+li.warnli::before{background:var(--warn)}
+li.okli::before{background:var(--down)}
+.note{background:rgba(245,165,36,.07);border:1px solid rgba(245,165,36,.32);border-radius:9px;padding:11px 13px;margin-top:11px}
+.note p{color:#e5c07b;font-size:12.5px}
+.note p b{color:#f5d191}
+table{width:100%;border-collapse:collapse;font-size:12.6px;margin-top:4px}
+td{padding:8px 4px;border-bottom:1px solid var(--line);color:var(--txt2);vertical-align:top;line-height:1.65}
+tr:last-child td{border-bottom:none}
+td.k{width:118px;color:var(--txt3);font-size:12px;white-space:nowrap}
+td b{color:var(--txt)}
+.qa{margin-bottom:11px}
+.qa:last-child{margin-bottom:0}
+.qa .q{font-size:12.9px;color:var(--txt);font-weight:600;margin-bottom:3px}
+.qa .a{font-size:12.6px;color:var(--txt2);line-height:1.7}
+.qa .a b{color:var(--txt)}
+footer{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);color:var(--txt3);font-size:11.8px;line-height:1.8}
+footer b{color:var(--txt2)}
+.contact{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:14px 18px;margin-top:14px;
+}
+.contact .hd{font-size:12.5px;color:var(--txt2);margin-bottom:8px;font-weight:600}
+.contact .line{font-size:13px;color:var(--txt);margin-bottom:5px}
+.contact .line:last-child{margin-bottom:0}
+@media print{
+  body{background:#fff;color:#111;padding:0}
+  .panel,.contact,.note,.step{background:#fff;border-color:#ccc}
+  h1,.panel h2,.step .body .t,.qa .q,.contact .line{color:#111}
+  p,li,td,.qa .a,.step .body{color:#333}
+  footer{color:#555}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>使用说明 · 本机买断版</h1>
+  <div class="sub">单文件离线工具 · 无需安装 · 无需注册 · 无需联网</div>
+  <div class="tagline">一次买断，永久使用 · 数据只存在你自己的电脑里</div>
+</header>
+
+<div class="panel">
+  <h2><span class="n">1</span>怎么打开</h2>
+  <p>拿到的文件是一个 <b>.html</b> 后缀的文件。它不是一个需要安装的软件，双击就能用。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="idx">A</div>
+      <div class="body">
+        <span class="t">电脑 <span class="os best">推荐</span></span>
+        把文件保存到桌面 → <b>双击它</b> → 用浏览器打开，立刻可以用。<br>
+        不必安装任何东西，不必注册账号，拔了网线也能用。
+      </div>
+    </div>
+    <div class="step">
+      <div class="idx">B</div>
+      <div class="body">
+        <span class="t">安卓手机 <span class="os">可以</span></span>
+        在微信里收到文件 → 点开它 → 右上角 <b>「…」</b> → <b>用其他应用打开</b> → 选浏览器（Chrome / QQ浏览器 / 夸克 都行）。
+      </div>
+    </div>
+    <div class="step">
+      <div class="idx">C</div>
+      <div class="body">
+        <span class="t">iPhone <span class="os meh">步骤较多</span></span>
+        微信里点开文件 → 右上角 <b>「…」</b> → <b>用其他应用打开</b> → 存储到「文件」→ 打开系统自带的<b>「文件」App</b> → 找到它 → 长按 → 共享 → 用 <b>Safari</b> 打开。
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <p><b>打不开？</b>多半是浏览器太旧。换成 Chrome 或 Edge 再试一次，就没问题了。</p>
+  </div>
+</div>
+
+<div class="panel">
+  <h2><span class="n">2</span>你填的数据存在哪里</h2>
+  <p>存在<b>你自己这台设备的浏览器里</b>，不会上传到任何地方，我们也看不到。这是这个版本的特点——数据不出门。</p>
+  <ul>
+    <li>换一台电脑打开 → 是<b>空白</b>的，需要重新填一遍</li>
+    <li>清理浏览器缓存、或用无痕模式打开 → 填过的内容<b>会丢</b></li>
+    <li class="okli">想长期保留：填完后截图留档，或用页面上的「<b>打印 / 存 PDF</b>」保存一份</li>
+    <li class="warnli">不要把重要数据只留在这个页面里——它不是账本，是个计算工具</li>
+  </ul>
+</div>
+
+<div class="panel">
+  <h2><span class="n">3</span>里面的行情数据说明（重要）</h2>
+  <p>产品里内置了一份 ETF 的历史行情快照，方便你打开就有数据可以试，不用手动粘。</p>
+  <p>但它是<b>离线产品，抓不到当天的实时价</b>。所以：</p>
+  <ul>
+    <li class="warnli">内置的那份数据<b>会过期</b>，页面上标注了快照日期，用之前先看一眼</li>
+    <li class="okli">正式算之前，把「<b>现价 / 基准价</b>」改成你在券商软件上看到的真实价格</li>
+    <li>改现价不影响其他参数，也不影响历史的形态判断</li>
+  </ul>
+  <div class="note">
+    <p>如果你需要<b>实时行情自动带入</b>，那是另一个版本的事，可以单独问。</p>
+  </div>
+</div>
+
+<div class="panel">
+  <h2><span class="n">4</span>页面上的东西怎么看</h2>
+  <table>
+    <tr><td class="k">顶部「选标的」</td><td>下拉选一只 ETF，名称、价格、数据会自动带进去。选「<b>自定义</b>」可以自己手填任意代码。</td></tr>
+    <tr><td class="k">方案按钮</td><td>点一下，整套参数自动就位，下方会展开一张说明卡，写清这个方案用在哪、会看到什么、要注意什么。</td></tr>
+    <tr><td class="k">颜色</td><td>按 A 股习惯：<b style="color:#e5484d">红色 = 涨 / 买入档</b>，<b style="color:#2fa46b">绿色 = 跌 / 卖出档</b>。</td></tr>
+    <tr><td class="k">打印 / 存 PDF</td><td>把当前结果存成一份 PDF 留档，格式已经排好，直接打就行。</td></tr>
+  </table>
+</div>
+
+<div class="panel">
+  <h2><span class="n">5</span>常见问题</h2>
+
+  <div class="qa">
+    <div class="q">双击打开是一片空白，或者没反应？</div>
+    <div class="a">先确认文件后缀确实是 <b>.html</b>（有的聊天软件会自动改名）。再确认用的是 Chrome / Edge 这类现代浏览器。还不行，右键 → 打开方式 → 选浏览器。</div>
+  </div>
+
+  <div class="qa">
+    <div class="q">算了半天，数字一直不变？</div>
+    <div class="a">检查输入框里是不是混进了汉字、空格或全角符号，比如把 <b>1.05</b> 打成了 <b>1.05元</b>。数字框里只填数字。</div>
+  </div>
+
+  <div class="qa">
+    <div class="q">可以装到手机上像 App 一样用吗？</div>
+    <div class="a">可以。用手机浏览器打开后，选<b>「添加到主屏幕」</b>，桌面就会出现一个图标，点开是全屏的，和 App 一样。</div>
+  </div>
+
+  <div class="qa">
+    <div class="q">能发给朋友用吗？</div>
+    <div class="a">一个文件对应一台设备使用。要多人用，请为每一台单独获取。</div>
+  </div>
+
+  <div class="qa">
+    <div class="q">会不会算错？</div>
+    <div class="a">页面里的公式都是公开的常规算法（网格、均线、布林、斐波、回撤、盈亏等），没有黑箱。不过任何计算工具都依赖你输入的数据，<b>输入错了结果一定错</b>，请核对后再用。</div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2><span class="n">6</span>免责声明</h2>
+  <p>本工具仅提供<b>数据计算与展示</b>，所有结果均由你填写的参数直接运算得出，<b>不构成任何投资建议、推荐或承诺</b>。</p>
+  <p>页面中不包含任何买卖建议、目标价或收益预期。投资决策及其后果由使用者自行承担。市场有风险，入市需谨慎。</p>
+</div>
+
+<div class="contact">
+  <div class="hd">使用中遇到问题</div>
+  <div class="line">微信：<b>（此处填你的微信号）</b></div>
+  <div class="line">说明：报问题时请附上<b>截图</b>和你的<b>输入数字</b>，这样一次就能定位。</div>
+</div>
+
+<footer>
+  <b>本机买断版</b> · 单文件交付 · 不联网 · 数据本地保存<br>
+  本说明可随文件一起转发给使用者。
+</footer>
+
+</div>
+</body>
+</html>
